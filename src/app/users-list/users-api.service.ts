@@ -8,4 +8,3 @@ export class UsersApiService {
         return this.apiService.get('https://jsonplaceholder.typicode.com/users');
     }
 }
-
