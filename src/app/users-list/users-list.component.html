@@ -1,4 +1,4 @@
-<p>Компонент списка юзеров</p>
+<app-create-user-form (createUser)="createUser($event)"></app-create-user-form>
 <div class="users-list__container">
     <div *ngFor="let item of userService.users$ | async">
         <app-user-card [user]="item" (deleteUser)="deleteUser($event)"></app-user-card>

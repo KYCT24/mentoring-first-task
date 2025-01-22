@@ -1,0 +1,19 @@
+.create-user {
+    &__container {
+        margin: 30px 30px 30px 0px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__input {
+        width: 150px;
+    }
+    &__button {
+        width: 150px;
+        margin-top: 20px;
+    }
+    &__alert {
+        color:red;
+    }
+}

@@ -26,9 +26,16 @@ export class TodoService {
         );
     }
     createTodo(todo: Todo) {
-        this.todosSubject$.next(
-            [...this.todosSubject$.value, todo]
+        const existingTodo = this.todosSubject$.value.find(
+            currentElement => currentElement.title === todo.title
         );
+        
+        if(existingTodo !== undefined) {
+            alert('Такая задача уже существует');
+        } else {
+            this.todosSubject$.next([...this.todosSubject$.value, todo]);
+            alert('Задача создана');
+        }
     }
     
     deleteTodo(id: number) {

@@ -1,0 +1,40 @@
+<h1>Create user form</h1>
+<div class="create-todo__container">
+    <form 
+        class="create-todo__form"
+        [formGroup]="formTodo"
+        (ngSubmit)="submitForm()"
+    >
+        <p>Текст:</p>
+        <input type="text" class="create-todo__input" formControlName="title">
+        <div
+            *ngIf="formTodo.controls['title'].invalid && (formTodo.controls['title'].dirty || formTodo.controls['title'].touched)"
+            class="create-todo__alert"
+        >
+            <div *ngIf="formTodo.controls['title'].errors" style="color: red;">
+                текст введено неправильно
+            </div>
+        </div>
+        <p>Автор:</p>
+        <input type="text" class="create-todo__input" formControlName="userId">
+        <div
+            *ngIf="formTodo.controls['userId'].invalid && (formTodo.controls['userId'].dirty || formTodo.controls['userId'].touched)"
+            class="create-todo__alert"
+        >
+           <div *ngIf="formTodo.controls['userId'].errors" style="color: red;">
+               автор введено неправильно
+           </div>
+        </div>
+        <p>Задача завершена:</p>
+        <input type="boolean" class="create-todo__input" formControlName="completed">
+        <div
+            *ngIf="formTodo.controls['completed'].invalid && (formTodo.controls['completed'].dirty || formTodo.controls['completed'].touched)"
+            class="create-todo__alert"
+        >
+           <div *ngIf="formTodo.controls['completed'].errors" style="color: red;">
+               задача введено неправильно
+           </div>
+        </div>
+        <button class="create-todo__button" type="submit" [disabled]="formTodo.invalid">Create user</button>
+    </form>
+</div>

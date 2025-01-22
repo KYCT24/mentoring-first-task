@@ -1,0 +1,50 @@
+<h1>Create user form</h1>
+<div class="create-user__container">
+    <form 
+        class="create-user__form"
+        [formGroup]="form"
+        (ngSubmit)="submitForm()"
+    >
+        <p>Name:</p>
+        <input type="text" class="create-user__input" formControlName="name">
+        <div
+            *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)"
+            class="create-user__alert"
+        >
+            <div *ngIf="form.controls['name'].errors" style="color: red;">
+                Имя введено неправильно
+            </div>
+        </div>
+        <p>Email:</p>
+        <input type="text" class="create-user__input" formControlName="email">
+        <div
+            *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)"
+            class="create-user__alert"
+        >
+           <div *ngIf="form.controls['email'].errors" style="color: red;">
+               email введено неправильно
+           </div>
+        </div>
+        <p>Website:</p>
+        <input type="text" class="create-user__input" formControlName="website">
+        <div
+            *ngIf="form.controls['website'].invalid && (form.controls['website'].dirty || form.controls['website'].touched)"
+            class="create-user__alert"
+        >
+           <div *ngIf="form.controls['website'].errors" style="color: red;">
+               сайт введено неправильно
+           </div>
+        </div>
+        <p>Company name:</p>
+        <input type="text" class="create-user__input" formControlName="companyName">
+        <div
+            *ngIf="form.controls['companyName'].invalid && (form.controls['companyName'].dirty || form.controls['companyName'].touched)"
+            class="create-user__alert"
+        >
+           <div *ngIf="form.controls['companyName'].errors" style="color: red;">
+               компания введено неправильно
+           </div>
+        </div>
+        <button class="create-user__button" type="submit" [disabled]="form.invalid">Create user</button>
+    </form>
+</div>
