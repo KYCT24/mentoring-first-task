@@ -1,8 +1,8 @@
 import { AsyncPipe, NgFor } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { TodosApiService } from "./todos-api.service";
+import { TodosApiService } from "../service/todos-api.service";
 import { TodoCardComponent } from "./todo-card/todo-card.component";
-import { TodoService } from "../todos.service";
+import { TodoService } from "../service/todos.service";
 import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form.component";
 
 export interface Todo {

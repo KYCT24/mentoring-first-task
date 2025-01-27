@@ -33,8 +33,8 @@ export class CreateTodoFormComponent {
     createTodo = new EventEmitter();
     
     public formTodo = new FormGroup({
-        title: new FormControl('',[Validators.required, Validators.minLength(2)]),
-        userId: new FormControl('', [Validators.required]),
+        title: new FormControl('',[Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-Zа-яА-ЯёЁ0-9\s]+$/)]),
+        userId: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
         completed: new FormControl('', [Validators.required, completedValidator()]),
     });
     

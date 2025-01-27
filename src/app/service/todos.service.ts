@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Todo } from "./todo-list/todos-list.component";
+import { Todo } from "../todo-list/todos-list.component";
 import { BehaviorSubject } from "rxjs";
 
 

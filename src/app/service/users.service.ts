@@ -1,18 +1,18 @@
 import { Injectable } from "@angular/core";
-import { User } from "./users-list/users-list.component";
+import { IUser } from "../interface/user.interface";
 import { BehaviorSubject } from "rxjs";
 
 
 @Injectable({providedIn: 'root'})
 export class UserService {
-    private usersSubject$ = new BehaviorSubject<User[]>([]);
+    private usersSubject$ = new BehaviorSubject<IUser[]>([]);
     users$ = this.usersSubject$.asObservable();
     
-    setUsers(users: User[]) {
+    setUsers(users: IUser[]) {
         this.usersSubject$.next(users);
     }
     
-    editUser(editedUser: User) {
+    editUser(editedUser: IUser) {
         this.usersSubject$.next(
             this.usersSubject$.value.map(
                 user => {
@@ -25,7 +25,7 @@ export class UserService {
             )
         );
     }
-    createUser(user: User) {
+    createUser(user: IUser) {
         const existingUser = this.usersSubject$.value.find(
             currentElement => currentElement.email === user.email
         );

@@ -1,0 +1,30 @@
+<form 
+class="edit-user__form"
+[formGroup]="form"
+>
+<mat-form-field>
+    <mat-label>Name:</mat-label>
+    <input matInput placeholder="name" formControlName="name">
+    <mat-error>Имя введено неправильно</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Email:</mat-label>
+    <input matInput placeholder="email" formControlName="email">
+    <mat-error>email введено неправильно</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Website:</mat-label>
+    <input matInput placeholder="website" formControlName="website">
+    <mat-error>сайт введено неправильно</mat-error>
+</mat-form-field>
+<div formGroupName="company">
+    <mat-form-field>
+        <mat-label>Company name:</mat-label>
+        <input matInput placeholder="companyName" formControlName="name">
+        <mat-error>компания введено неправильно</mat-error>
+    </mat-form-field>
+</div>
+<button type="submit" matIconSuffix mat-raised-button [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields" (click)="openSnackBar()" >Create user
+    <mat-icon>add</mat-icon>
+</button>
+</form>

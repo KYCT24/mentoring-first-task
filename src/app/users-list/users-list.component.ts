@@ -1,41 +1,10 @@
 import { AsyncPipe, NgFor } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { UsersApiService } from "./users-api.service";
+import { UsersApiService } from "../service/users-api.service";
 import { UserCardComponent } from "./user-card/user-card.component";
-import { UserService } from "../users.service";
+import { UserService } from "../service/users.service";
 import { CreateUserFormComponent } from "../create-user-form/create-user-form.component";
-
-export interface User {
-    id: number;
-    name: string;
-    username?: string;
-    email: string;
-    address?: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-        geo: {
-            lat: string;
-            lng: string;
-        };
-    }
-    phone?: string;
-    website: string;
-    company: {
-        name: string;
-        catchPhrase?: string;
-        bs?: string;
-    };
-};
-
-export interface CreateUserI {
-    id: number;
-    name: string;
-    email: string;
-    website: string;
-    companyName: string;
-}
+import { IUser, ICreateUser } from "../interface/user.interface";
 
 @Component({
     selector: 'app-user-list',
@@ -66,14 +35,25 @@ export class UsersListComponent {
         this.userService.deleteUser(id);
     }
     
-    public createUser(formData: CreateUserI) {
+    editUser(user: IUser) {
+        console.log(user);
+        this.userService.editUser({
+            ...user,
+            company: {
+                name: user.company.name,
+            }
+        }
+        );
+    }
+    
+    public createUser(formData: ICreateUser) {
         this.userService.createUser({
             id: new Date().getTime(),
             name: formData.name,
             email: formData.email,
             website: formData.website,
             company: {
-                name: formData.companyName,
+                name: formData.company.name,
             },
         });
     }
