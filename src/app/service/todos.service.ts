@@ -1,18 +1,19 @@
 import { Injectable } from "@angular/core";
-import { Todo } from "../todo-list/todos-list.component";
+import { ITodo } from "../interface/todo.interface";
 import { BehaviorSubject } from "rxjs";
+import { FormGroup } from "@angular/forms";
 
 
 @Injectable({providedIn: 'root'})
-export class TodoService {
-    private todosSubject$ = new BehaviorSubject<Todo[]>([]);
+export class TodosService {
+    private todosSubject$ = new BehaviorSubject<ITodo[]>([]);
     todos$ = this.todosSubject$.asObservable();
     
-    setTodos(todos: Todo[]) {
+    setTodos(todos: ITodo[]) {
         this.todosSubject$.next(todos);
     }
     
-    editTodos(editedTodos: Todo) {
+    editTodos(editedTodos: ITodo) {
         this.todosSubject$.next(
             this.todosSubject$.value.map(
                 todo => {
@@ -25,7 +26,7 @@ export class TodoService {
             )
         );
     }
-    createTodo(todo: Todo) {
+    createTodo(todo: ITodo) {
         const existingTodo = this.todosSubject$.value.find(
             currentElement => currentElement.title === todo.title
         );
@@ -51,4 +52,5 @@ export class TodoService {
             )
         )
     }
+    
 }

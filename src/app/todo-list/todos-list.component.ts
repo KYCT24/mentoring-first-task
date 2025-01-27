@@ -2,22 +2,9 @@ import { AsyncPipe, NgFor } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { TodosApiService } from "../service/todos-api.service";
 import { TodoCardComponent } from "./todo-card/todo-card.component";
-import { TodoService } from "../service/todos.service";
+import { TodosService } from "../service/todos.service";
 import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form.component";
-
-export interface Todo {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
-};
-
-export interface CreateTodoI {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
-}
+import { ICreateTodo, ITodo } from "../interface/todo.interface";
 
 @Component({
     selector: 'app-todos-list',
@@ -30,7 +17,7 @@ export interface CreateTodoI {
 
 export class TodosListComponent {
     readonly TodosApiService = inject(TodosApiService);
-    readonly TodosService = inject(TodoService);
+    readonly TodosService = inject(TodosService);
     
      constructor() {
         this.TodosApiService.getTodos().subscribe(
@@ -48,7 +35,14 @@ export class TodosListComponent {
         this.TodosService.deleteTodo(id);
     }
     
-    public createTodo(formData: CreateTodoI) {
+    editTodo(todo: ITodo) {
+        console.log(todo);
+        this.TodosService.editTodos({
+            ...todo
+        });
+    }
+    
+    public createTodo(formData: ICreateTodo) {
         this.TodosService.createTodo({
             id: new Date().getTime(),
             userId: formData.userId,

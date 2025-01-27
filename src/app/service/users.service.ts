@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { IUser } from "../interface/user.interface";
 import { BehaviorSubject } from "rxjs";
 
-
 @Injectable({providedIn: 'root'})
 export class UserService {
     private usersSubject$ = new BehaviorSubject<IUser[]>([]);

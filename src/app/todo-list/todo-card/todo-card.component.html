@@ -1,17 +1,11 @@
-<div class="todo-list__todos">
-    <p>ТЕКСТ ЗАДАЧИ:</p>
-    <div>
-        <p>{{todo.title}}</p>
-    </div>
-    
-    <p>АВТОР ЗАДАЧИ</p>
-    <div>
-        <p>{{todo.userId}}</p>
-    </div>
-    
-    <p>ЗАДАЧА ЗАВЕРШЕНА</p>
-    <div>
-        <p>{{todo.completed ? 'ДА' : 'НЕТ'}}</p>
-    </div>
-    <button (click)="onDeleteTodo(todo.id)">УДАЛИТИТЬ ЗАДАЧУ</button>
-</div>
+<mat-card class="todo-list__container">
+    <mat-card-header class="todo-list__todos">
+        <mat-card-title>{{todo.title}}</mat-card-title>
+        <mat-card-title>{{todo.userId}}</mat-card-title>
+        <mat-card-title>{{todo.completed ? 'ДА' : 'НЕТ'}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="todo-list__buttons">
+        <button mat-raised-button (click)="onDeleteTodo(todo.id)">Удалить задачу</button>
+        <button mat-raised-button (click)="openDialog()">Редактировать задачу</button>
+    </mat-card-actions>
+</mat-card>

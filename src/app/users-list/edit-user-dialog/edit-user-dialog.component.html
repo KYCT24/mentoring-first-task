@@ -1,6 +1,6 @@
 <form 
-class="edit-user__form"
-[formGroup]="form"
+    class="edit-user__form"
+    [formGroup]="form"
 >
 <mat-form-field>
     <mat-label>Name:</mat-label>
@@ -24,7 +24,7 @@ class="edit-user__form"
         <mat-error>компания введено неправильно</mat-error>
     </mat-form-field>
 </div>
-<button type="submit" matIconSuffix mat-raised-button [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields" (click)="openSnackBar()" >Create user
+<button type="submit" matIconSuffix mat-raised-button [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields" (click)="openSnackBar()" >Change user
     <mat-icon>add</mat-icon>
 </button>
 </form>
