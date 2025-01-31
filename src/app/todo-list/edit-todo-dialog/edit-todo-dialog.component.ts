@@ -36,7 +36,7 @@ export class EditTodoDialogComponent {
             return false;
         }
     }
-        
+    
     openSnackBar() {
         this._snackBar.open('Задача обновлена!', 'OK');
     }

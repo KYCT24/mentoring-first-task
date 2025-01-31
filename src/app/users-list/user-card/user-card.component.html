@@ -6,7 +6,7 @@
         <mat-card-title>{{user.company.name}}</mat-card-title>
     </mat-card-header>
     <mat-card-actions class="user-list__buttons">
-        <button mat-raised-button (click)="onDeleteUser(user.id)">Удалить юзера</button>
-        <button mat-raised-button (click)="openDialog()">Редактировать юзера</button>
+        <button mat-raised-button (click)="openDialogDelete()">Удалить юзера</button>
+        <button mat-raised-button (click)="openDialogEdit()">Редактировать юзера</button>
     </mat-card-actions>
 </mat-card>

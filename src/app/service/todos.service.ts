@@ -10,7 +10,7 @@ export class TodosService {
     todos$ = this.todosSubject$.asObservable();
     
     setTodos(todos: ITodo[]) {
-        this.todosSubject$.next(todos);
+        this.todosSubject$.next(todos.slice(0, 10));
     }
     
     editTodos(editedTodos: ITodo) {

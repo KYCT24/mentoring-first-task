@@ -31,7 +31,9 @@ export class EditUserDialogComponent {
     });
     
     openSnackBar() {
-        this._snackBar.open('Юзер обновлен!', 'OK');
+        this._snackBar.open('Пользователь изменен!', 'OK', {
+            duration: 3000
+        });
     }
     get userWithUpdatedFields() {
         return { 

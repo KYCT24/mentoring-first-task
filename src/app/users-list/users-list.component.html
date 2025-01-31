@@ -1,4 +1,4 @@
-<app-create-user-form (createUser)="createUser($event)"></app-create-user-form>
+<!-- <app-create-user-form (createUser)="createUser($event)"></app-create-user-form> -->
 <div class="users-list__container">
     <div *ngFor="let item of userService.users$ | async">
         <app-user-card
@@ -7,3 +7,6 @@
         (editUser)="editUser($event)"></app-user-card>
     </div>
 </div>
+<button mat-mini-fab color="primary" class="users-list__button" (click)="openDialogCreate()">
+    <mat-icon>add</mat-icon>
+</button>
