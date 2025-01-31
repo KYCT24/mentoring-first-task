@@ -1,11 +1,9 @@
 .create-user {
-    &__container {
-        margin: 30px 300px 30px 30px;
+    &__dialog {
+        margin: 30px 30px 30px 30px;
         display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        gap: 100px;
+        align-items: flex-start;
     }
     &__form {
         display: flex;

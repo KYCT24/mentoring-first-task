@@ -5,13 +5,14 @@ import { MatButtonModule } from "@angular/material/button";
 import { EditTodoDialogComponent } from "../edit-todo-dialog/edit-todo-dialog.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
+import { CustomLimitString } from "../../pipes/limit-string.pipe";
 
 @Component({
     selector: 'app-todo-card',
     templateUrl: './todo-card.component.html',
     styleUrl: './todo-card.component.scss',
     standalone: true,
-    imports: [MatCardModule, MatButtonModule]
+    imports: [MatCardModule, MatButtonModule, CustomLimitString]
 })
 
 export class TodoCardComponent {

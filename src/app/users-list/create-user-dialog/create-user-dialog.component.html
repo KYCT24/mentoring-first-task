@@ -1,10 +1,9 @@
-<h1>Создание пользователя</h1>
 <div class="create-user">
-    <div class="create-user__container">
         <form 
             class="create-user__dialog"
             [formGroup]="form"
         >
+        <h1>Создание юзера</h1>
             <mat-form-field>
                 <mat-label>Name:</mat-label>
                 <input matInput placeholder="" formControlName="name">
@@ -17,8 +16,13 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Website:</mat-label>
-                <input matInput placeholder="" formControlName="website">
+                <input matInput placeholder="website" formControlName="website">
                 <mat-error>сайт введено неправильно</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Telephone:</mat-label>
+                <input matInput placeholder="" formControlName="phone">
+                <mat-error>номер введено неправильно</mat-error>
             </mat-form-field>
             <div formGroupName="company">
                 <mat-form-field>
@@ -31,5 +35,4 @@
                     <mat-icon>add</mat-icon>
                 </button>
         </form>
-    </div>
 </div>

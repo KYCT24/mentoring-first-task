@@ -6,13 +6,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteUserDialogComponent } from "../delete-user-dialog/delete-user-dialog.component";
+import { CustomUpperCasePipe } from "../../pipes/upper-case.pipe";
+import { CustomRemoveDashes } from "../../pipes/remove-dashes.pipe";
 
 @Component({
     selector: 'app-user-card',
     templateUrl: './user-card.component.html',
     styleUrl: './user-card.component.scss',
     standalone: true,
-    imports: [MatCardModule, MatButtonModule, MatDialogModule]
+    imports: [MatCardModule, MatButtonModule, MatDialogModule, CustomUpperCasePipe, CustomRemoveDashes]
 })
 
 export class UserCardComponent implements OnChanges {

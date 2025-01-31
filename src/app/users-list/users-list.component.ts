@@ -10,21 +10,20 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatDialog } from "@angular/material/dialog";
 import { CreateUserDialogComponent } from "./create-user-dialog/create-user-dialog.component";
 
+
 @Component({
     selector: 'app-user-list',
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
     standalone: true,
     imports: [NgFor, UserCardComponent, AsyncPipe, MatButtonModule, MatIconModule],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class UsersListComponent {
     readonly usersApiService = inject(UsersApiService);
     readonly userService = inject(UserService);
-    
     readonly dialog = inject(MatDialog);
-    
     
     constructor() {
         this.usersApiService.getUsers().subscribe(
@@ -63,13 +62,13 @@ export class UsersListComponent {
         });
     }
     
-
     public createUser(user: ICreateUser) {
         this.userService.createUser({
             id: new Date().getTime(),
             name: user.name,
             email: user.email,
             website: user.website,
+            phone: user.phone,
             company: {
                 name: user.company.name,
             },

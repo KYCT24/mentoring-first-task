@@ -2,6 +2,7 @@
     class="edit-user__form"
     [formGroup]="form"
 >
+<h1>Редактирование юзера</h1>
 <mat-form-field>
     <mat-label>Name:</mat-label>
     <input matInput placeholder="name" formControlName="name">
@@ -16,6 +17,11 @@
     <mat-label>Website:</mat-label>
     <input matInput placeholder="website" formControlName="website">
     <mat-error>сайт введено неправильно</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Telephone:</mat-label>
+    <input matInput placeholder="" formControlName="phone">
+    <mat-error>номер введено неправильно</mat-error>
 </mat-form-field>
 <div formGroupName="company">
     <mat-form-field>

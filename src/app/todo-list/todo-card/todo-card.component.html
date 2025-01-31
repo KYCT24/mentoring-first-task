@@ -1,6 +1,6 @@
 <mat-card class="todo-list__container">
     <mat-card-header class="todo-list__todos">
-        <mat-card-title>{{todo.title}}</mat-card-title>
+        <mat-card-title>{{todo.title | CustomLimitString}}</mat-card-title>
         <mat-card-title>{{todo.userId}}</mat-card-title>
         <mat-card-title>{{todo.completed ? 'ДА' : 'НЕТ'}}</mat-card-title>
     </mat-card-header>
