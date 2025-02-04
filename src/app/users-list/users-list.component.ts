@@ -26,15 +26,7 @@ export class UsersListComponent {
     readonly dialog = inject(MatDialog);
     
     constructor() {
-        this.usersApiService.getUsers().subscribe(
-            (response: any) => {
-                this.userService.setUsers(response);
-            }
-        );
-        
-        this.userService.users$.subscribe(
-            users => console.log(users)
-        )
+        this.userService.loadUsers();
     }
     
     deleteUser(id: number) {
@@ -43,13 +35,7 @@ export class UsersListComponent {
     
     editUser(user: IUser) {
         console.log(user);
-        this.userService.editUser({
-            ...user,
-            company: {
-                name: user.company.name,
-            }
-        }
-        );
+        this.userService.editUser(user);
     }
     
     openDialogCreate(): void {
