@@ -7,7 +7,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { ITodo } from "../../interface/todo.interface";
-import { completedValidator } from "../../create-todo-form/create-todo-form.component";
+import { completedValidator } from "../../components/create-todo-form/create-todo-form.component";
 
 @Component({
     standalone: true,

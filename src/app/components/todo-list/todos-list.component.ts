@@ -1,10 +1,10 @@
 import { AsyncPipe, NgFor } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { TodosApiService } from "../service/todos-api.service";
+import { TodosApiService } from "../../service/todos-api.service";
 import { TodoCardComponent } from "./todo-card/todo-card.component";
-import { TodosService } from "../service/todos.service";
-import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form.component";
-import { ICreateTodo, ITodo } from "../interface/todo.interface";
+import { TodosService } from "../../service/todos.service";
+import { CreateTodoFormComponent } from "./create-todo-form/create-todo-form.component";
+import { ICreateTodo, ITodo } from "../../interface/todo.interface";
 
 @Component({
     selector: 'app-todos-list',

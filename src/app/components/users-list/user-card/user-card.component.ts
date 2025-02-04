@@ -1,13 +1,13 @@
 import { Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChanges} from "@angular/core";
-import { IUser } from "../../interface/user.interface";
+import { IUser } from "../../../interface/user.interface";
 import { MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { EditUserDialogComponent } from "../edit-user-dialog/edit-user-dialog.component";
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteUserDialogComponent } from "../delete-user-dialog/delete-user-dialog.component";
-import { CustomUpperCasePipe } from "../../pipes/upper-case.pipe";
-import { CustomRemoveDashes } from "../../pipes/remove-dashes.pipe";
+import { CustomUpperCasePipe } from "../../../pipes/upper-case.pipe";
+import { CustomRemoveDashes } from "../../../pipes/remove-dashes.pipe";
 
 @Component({
     selector: 'app-user-card',

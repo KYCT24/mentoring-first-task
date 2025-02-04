@@ -1,16 +1,19 @@
-.container {
-    margin: 0 auto;
-    max-width: 1728px;
-    padding: 0px 10px;
-    width: 100%;
-
-    @media (min-width: 768px) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+.header {
+    &__container {
+        margin: 0 auto;
+        max-width: 1728px;
+        padding: 0px 10px;
+        width: 100%;
     
-    @media (min-width: 1280px) {
-        padding-left: 84px;
-        padding-right: 84px;
+        @media (min-width: 768px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        @media (min-width: 1280px) {
+            padding-left: 84px;
+            padding-right: 84px;
+        }
     }
+
 }

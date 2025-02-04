@@ -1,11 +1,11 @@
 import { Component, EventEmitter, inject, Input, Output, SimpleChanges} from "@angular/core";
-import { ITodo } from "../../interface/todo.interface";
+import { ITodo } from "../../../interface/todo.interface";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { EditTodoDialogComponent } from "../edit-todo-dialog/edit-todo-dialog.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
-import { CustomLimitString } from "../../pipes/limit-string.pipe";
+import { CustomLimitString } from "../../../pipes/limit-string.pipe";
 
 @Component({
     selector: 'app-todo-card',
