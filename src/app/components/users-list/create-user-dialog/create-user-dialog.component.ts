@@ -33,12 +33,12 @@ export class CreateUserDialogComponent {
     private fb: FormBuilder = inject(FormBuilder);
     
     public form: FormGroup = this.fb.group({
-        name: new FormControl('',[Validators.required, Validators.minLength(2)]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        website: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        phone: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
-        company: new FormGroup({
-            name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+        name: ['',[Validators.required, Validators.minLength(2)]],
+        email: ['', [Validators.required, Validators.email]],
+        website: ['', [Validators.required, Validators.minLength(3)]],
+        phone: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+        company: this.fb.group({
+            name: ['', [Validators.required, Validators.minLength(2)]],
         }),
     });
     

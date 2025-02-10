@@ -9,5 +9,5 @@ import { Component} from "@angular/core";
     styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent {
-    public showImage = true
+    public showImage: boolean = true
 }

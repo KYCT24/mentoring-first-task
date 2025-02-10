@@ -12,7 +12,7 @@ import { MatButton } from "@angular/material/button";
 })
 
 export class DeleteUserDialogComponent {
-    public readonly data = inject<{user: IUser}>(MAT_DIALOG_DATA);
+    public readonly data: {user: IUser} = inject<{user: IUser}>(MAT_DIALOG_DATA);
     
     constructor() {
         console.log('Данные, которые приходят в модалку:',this.data);

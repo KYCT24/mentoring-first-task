@@ -17,35 +17,28 @@ import { IUser } from "../../../interface/user.interface";
 })
 
 export class EditUserDialogComponent {
-    readonly data = inject<{ user: IUser}>(MAT_DIALOG_DATA);
-    readonly dialogRef = inject(MatDialogRef<EditUserDialogComponent>);
-    readonly _snackBar = inject(MatSnackBar);
+    private readonly data: {user: IUser} = inject<{ user: IUser}>(MAT_DIALOG_DATA);
+    private readonly dialogRef: MatDialogRef<IUser> = inject(MatDialogRef<EditUserDialogComponent>);
+    private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
     
-    public form = new FormGroup({
-        name: new FormControl(this.data.user.name,[Validators.required, Validators.minLength(2)]),
-        email: new FormControl(this.data.user.email, [Validators.required, Validators.email]),
-        website: new FormControl(this.data.user.website, [Validators.required, Validators.minLength(3)]),
-        phone: new FormControl(this.data.user.phone, [Validators.required, Validators.minLength(5)]),
+    public form: FormGroup = new FormGroup({
+        name: new FormControl<string>(this.data.user.name,[Validators.required, Validators.minLength(2)]),
+        email: new FormControl<string>(this.data.user.email, [Validators.required, Validators.email]),
+        website: new FormControl<string>(this.data.user.website, [Validators.required, Validators.minLength(3)]),
+        phone: new FormControl<string>(this.data.user.phone, [Validators.required, Validators.minLength(5)]),
         company: new FormGroup({
-            name: new FormControl(this.data.user.company.name, [Validators.required, Validators.minLength(2)]),
+            name: new FormControl<string>(this.data.user.company.name, [Validators.required, Validators.minLength(2)]),
         }),
     });
     
-    openSnackBar() {
+    public openSnackBar(): void {
         this._snackBar.open('Пользователь изменен!', 'OK', {
             duration: 3000
         });
     }
-    get userWithUpdatedFields() {
-        return { 
-            ...this.form.value,
-            id: this.data.user.id,
-        };
-    }
     
-    constructor() {
-        console.log(this.data);
-        this.userWithUpdatedFields;
-        console.log(this.data.user);
+    public submitForm(): void {
+        this.dialogRef.close({...this.form.value, id: this.data.user.id});
+        this.openSnackBar();
     }
 }

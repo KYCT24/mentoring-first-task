@@ -20,34 +20,34 @@ import { CreateUserDialogComponent } from "../users-list/create-user-dialog/crea
 })
 
 export class UsersListComponent {
-    readonly usersApiService = inject(UsersApiService);
-    readonly userService = inject(UserService);
-    readonly dialog = inject(MatDialog);
+    public readonly usersApiService: UsersApiService = inject(UsersApiService);
+    public readonly userService: UserService = inject(UserService);
+    public readonly dialog: MatDialog = inject(MatDialog);
     
     constructor() {
         this.userService.loadUsers();
     }
     
-    deleteUser(id: number) {
+    public deleteUser(id: number): void {
         this.userService.deleteUser(id);
     }
     
-    editUser(user: IUser) {
+    public editUser(user: IUser): void {
         console.log(user);
         this.userService.editUser(user);
     }
     
-    openDialogCreate(): void {
+    public openDialogCreate(): void {
         const dialogRef = this.dialog.open(CreateUserDialogComponent);
         
-        dialogRef.afterClosed().subscribe(result => {
+        dialogRef.afterClosed().subscribe((result: ICreateUser | null) => {
             if (result) {
                 this.createUser(result);
             };
         });
     }
     
-    public createUser(user: ICreateUser) {
+    public createUser(user: ICreateUser): void {
         this.userService.createUser({
             id: new Date().getTime(),
             name: user.name,

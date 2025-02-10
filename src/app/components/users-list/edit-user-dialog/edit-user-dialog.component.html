@@ -30,7 +30,8 @@
         <mat-error>компания введено неправильно</mat-error>
     </mat-form-field>
 </div>
-<button type="submit" matIconSuffix mat-raised-button [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields" (click)="openSnackBar()" >Change user
+<button type="submit" matIconSuffix mat-raised-button [disabled]="form.invalid"  (click)="submitForm()" >Change user
     <mat-icon>add</mat-icon>
 </button>
 </form>
+<!-- [mat-dialog-close]="userWithUpdatedFields" -->

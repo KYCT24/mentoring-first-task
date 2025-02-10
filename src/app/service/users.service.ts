@@ -1,18 +1,18 @@
 import { inject, Injectable } from "@angular/core";
 import { IUser } from "../interface/user.interface";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { LocalStorageService } from "./local-storage.service";
 import { UsersApiService } from "./users-api.service";
 
 @Injectable({providedIn: 'root'})
 export class UserService {
     private readonly localStorageUsersKey: string = 'users';
-    private readonly LocalStorageService = inject(LocalStorageService);
-    private usersSubject$ = new BehaviorSubject<IUser[]>([]);
+    private readonly LocalStorageService: LocalStorageService = inject(LocalStorageService);
     private readonly usersApiService: UsersApiService = inject(UsersApiService);
-    users$ = this.usersSubject$.asObservable();
+    private readonly usersSubject$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
+    public readonly users$: Observable<IUser[]> = this.usersSubject$.asObservable();
     
-    setUsers(usersData: IUser[]): void {
+    public setUsers(usersData: IUser[]): void {
         this.LocalStorageService.saveDataLocalStorage<IUser[]>(
             this.localStorageUsersKey,
             usersData
@@ -20,8 +20,8 @@ export class UserService {
         this.usersSubject$.next(usersData);
     }
     
-    loadUsers(): void {
-        const loadStorageUsers = this.LocalStorageService.getDataLocalStorage<IUser[]>(
+    public loadUsers(): void {
+        const loadStorageUsers: IUser[] | null = this.LocalStorageService.getDataLocalStorage<IUser[]>(
             this.localStorageUsersKey
         );
         if (loadStorageUsers) {
@@ -34,7 +34,7 @@ export class UserService {
         }
     }
     
-    editUser(editedUser: IUser) {
+    public editUser(editedUser: IUser) {
         this.usersSubject$.next(
             this.usersSubject$.value.map(
                 user => {
@@ -49,8 +49,8 @@ export class UserService {
         this.setUsers(this.usersSubject$.value);
     }
     
-    createUser(user: IUser) {
-        const existingUser = this.usersSubject$.value.find(
+    public createUser(user: IUser): void {
+        const existingUser: IUser | undefined = this.usersSubject$.value.find(
             currentElement => currentElement.email === user.email
         );
         
@@ -63,8 +63,8 @@ export class UserService {
         }
     }
     
-    deleteUser(id: number) {
-        const updatedUsers = this.usersSubject$.value.filter(user => user.id !== id)
+    public deleteUser(id: number): void {
+        const updatedUsers: IUser[] = this.usersSubject$.value.filter(user => user.id !== id)
         
         this.setUsers(updatedUsers);
         

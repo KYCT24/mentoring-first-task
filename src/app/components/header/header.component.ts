@@ -16,12 +16,12 @@ import { RouterLink } from "@angular/router";
 })
 
 export class HeaderComponent {
-    public readonly headerItem1 = 'Главная';
-    public readonly headerItem2 = 'О компании';
-    public readonly headerItem3 = 'Каталог';
-    public readonly headerDate = new Date();
+    public readonly headerItem1: string = 'Главная';
+    public readonly headerItem2: string = 'О компании';
+    public readonly headerItem3: string = 'Каталог';
+    public readonly headerDate: Date = new Date();
     
-    public isShowCatalog = true;
+    public isShowCatalog: boolean = true;
     public isUppercase: boolean = true;
     public menuItems: string[] = menuItems;
     
