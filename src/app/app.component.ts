@@ -1,21 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { HeaderComponent } from "./components/header/header.component";
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, HeaderComponent, FooterComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    providers: [DatePipe]
+    providers: []
 })
 export class AppComponent {
-    title = 'mentoring-first-project';
-    readonly today: Date = new Date();
-    readonly datePipe = inject(DatePipe)
-    
-    get formattedDate(): string {
-        return this.datePipe.transform(this.today, 'medium') || '';
-    }
 }

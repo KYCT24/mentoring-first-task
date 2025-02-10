@@ -24,8 +24,6 @@ export function completedValidator(): ValidatorFn {
     };
 }
 
-
-
 @Component({
     selector: "app-create-todo-form",
     templateUrl: "./create-todo-form.component.html",

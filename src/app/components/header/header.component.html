@@ -1,0 +1,62 @@
+<header class="header">
+    <div class="header__line">
+        <div class="header__container">
+            <div class="header__left">
+                <div class="header__logo">
+                    <img src="../../../assets/logo.svg" alt="логотип сайта">
+                </div>
+                <nav class="header-nav">
+                    <div class="header-nav__item"><a routerLink="">{{ headerItem1 }}</a></div>
+                    <div class="header-nav__item"><a>{{ headerItem2 }}</a></div>
+                    <div class="header-nav__item" *ngIf="isShowCatalog"><a>{{ headerItem3 }}</a></div>
+                </nav>
+                <button class="header__button" (click)="isShowCatalog = !isShowCatalog">Скрыть/Показать каталог</button>
+                <button class="header__button" (click)="changeMenuText()">Изменить текст</button>
+                <button class="header__button"><a routerLink="users">Юзеры</a></button>
+            </div>
+            <div class="header__right">
+                <div class="header__item">
+                    <img src="../../../assets/phone.svg" alt="Логотип телефона" style="width: 25px">
+                    <div class="header-phone">
+                        <a href="tel:+7 (708) 070-70-70">
+                        <p>{{ '+7(708) 070 - 70 - 70' | CustomRemoveDashes }}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="header__item">
+                    <button class="header__button-basket" colorBasker>
+                        <img src="../../../assets/shop-cart.svg" alt="Логотип корзина" style="width: 25px">
+                        <span>Пусто</span>
+                    </button>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="header-2">
+    <div class="header-2__line">
+        <div class="header-2__container">
+            <div class="header-2__left">
+                <div class="header-2__logo">
+                    <img src="../../../assets/light.svg" alt="Логотип меню">
+                </div>
+                <nav class="header-2-nav" *ngIf="changeMenuText">
+                    <div class="header-2-nav__item" *ngFor="let item of menuItems">{{ item }}</div>
+                    <div class="header-2__current-date">
+                        <p>{{ headerDate | CurrentDateTimePipe }}</p>
+                    </div>
+                </nav>
+            </div>
+            <div class="header-2__right">
+                <form>
+                    <input type="search" class="header-2__input" placeholder="Найти">
+                </form>
+                <div class="header-2__map">
+                    <img src="../../../assets/map-pin.svg" alt="Логотип навигация">
+                    <button class="header-2__map-button">Калифорния</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</header>
+

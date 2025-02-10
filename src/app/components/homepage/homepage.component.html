@@ -1,0 +1,11 @@
+<div class="homepage">
+    <div class="homepage__container">
+        <button class="homepage__button" (click)="showImage = !showImage">
+            Скрыть картинку
+        </button>
+        <div *ngIf="showImage" class="homepage__image">
+            <img src="../../../assets/image.jpg" alt="">
+        </div>
+        <img src="../../../assets/image_2.jpg" alt="">
+    </div>
+</div>

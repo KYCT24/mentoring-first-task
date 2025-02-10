@@ -32,7 +32,6 @@ export class UserService {
                 this.setUsers(users)
             });
         }
-
     }
     
     editUser(editedUser: IUser) {
