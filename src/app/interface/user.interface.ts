@@ -32,3 +32,9 @@ export interface ICreateUser {
         name: string;
     }
 }
+
+export interface IUserRole {
+    name: string;
+    email: string;
+    isAdmin: boolean | null;
+}

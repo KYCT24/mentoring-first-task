@@ -13,6 +13,7 @@
                 <button class="header__button" (click)="isShowCatalog = !isShowCatalog">Скрыть/Показать каталог</button>
                 <button class="header__button" (click)="changeMenuText()">Изменить текст</button>
                 <button class="header__button"><a routerLink="users">Юзеры</a></button>
+                <button class="header__button"><a routerLink="admin">Админ</a></button>
             </div>
             <div class="header__right">
                 <div class="header__item">
@@ -28,35 +29,43 @@
                         <img src="../../../assets/shop-cart.svg" alt="Логотип корзина" style="width: 25px">
                         <span>Пусто</span>
                     </button>
+                    
+                    <button class="header__button header__button-login" mat-raised-button color="primary" (click)="openLoginDialog()"
+                    *ngIf="(userService.user$ | async) === null">
+                        Войти
+                    </button>
+                    <button class="header__button header__button-login" mat-raised-button color="accent" (click)="logoutOpenDialog()"
+                    *ngIf="(userService.user$ | async) !== null">
+                        Выйти
+                    </button>
                 </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="header-2">
-    <div class="header-2__line">
-        <div class="header-2__container">
-            <div class="header-2__left">
-                <div class="header-2__logo">
-                    <img src="../../../assets/light.svg" alt="Логотип меню">
-                </div>
-                <nav class="header-2-nav" *ngIf="changeMenuText">
-                    <div class="header-2-nav__item" *ngFor="let item of menuItems">{{ item }}</div>
-                    <div class="header-2__current-date">
-                        <p>{{ headerDate | CurrentDateTimePipe }}</p>
+    <div class="header-2">
+        <div class="header-2__line">
+            <div class="header-2__container">
+                <div class="header-2__left">
+                    <div class="header-2__logo">
+                        <img src="../../../assets/light.svg" alt="Логотип меню">
                     </div>
-                </nav>
-            </div>
-            <div class="header-2__right">
-                <form>
-                    <input type="search" class="header-2__input" placeholder="Найти">
-                </form>
-                <div class="header-2__map">
-                    <img src="../../../assets/map-pin.svg" alt="Логотип навигация">
-                    <button class="header-2__map-button">Калифорния</button>
+                    <nav class="header-2-nav" *ngIf="changeMenuText">
+                        <div class="header-2-nav__item" *ngFor="let item of menuItems">{{ item }}</div>
+                        <div class="header-2__current-date">
+                            <p>{{ headerDate | CurrentDateTimePipe }}</p>
+                        </div>
+                    </nav>
+                </div>
+                <div class="header-2__right">
+                    <form>
+                        <input type="search" class="header-2__input" placeholder="Найти">
+                    </form>
+                    <div class="header-2__map">
+                        <img src="../../../assets/map-pin.svg" alt="Логотип навигация">
+                        <button class="header-2__map-button">Калифорния</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </header>
-

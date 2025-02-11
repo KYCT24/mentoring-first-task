@@ -5,7 +5,7 @@ import { LocalStorageService } from "./local-storage.service";
 import { UsersApiService } from "./users-api.service";
 
 @Injectable({providedIn: 'root'})
-export class UserService {
+export class UsersService {
     private readonly localStorageUsersKey: string = 'users';
     private readonly LocalStorageService: LocalStorageService = inject(LocalStorageService);
     private readonly usersApiService: UsersApiService = inject(UsersApiService);

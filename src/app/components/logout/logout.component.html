@@ -1,0 +1,29 @@
+<div class="logout">
+    <div class="logout__container">
+        <h1 class="logout__title">Хотите выйти?</h1>
+        <div class="logout__wrapper">
+            <button 
+                class="logout__button"
+                mat-raised-button
+                color="warn"
+                mat-dialog-close="logout"
+                shadowHighLight
+                matTooltip="Войти как админ"
+            >
+            <mat-icon class="logout__icon">logout</mat-icon>
+            Выйти?
+            </button>
+            <button 
+                class="logout__button"
+                mat-raised-button
+                color="primary"
+                mat-dialog-close=""
+                shadowHighLight
+                matTooltip="Остаться в системе"
+            >
+            <mat-icon class="logout__icon">close</mat-icon>
+            Отмена
+            </button>
+        </div>
+    </div>
+</div>
