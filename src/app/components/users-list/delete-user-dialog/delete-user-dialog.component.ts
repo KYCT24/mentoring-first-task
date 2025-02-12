@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { IUser } from "../../../interface/user.interface";
+import { IUser } from "../../interface/user.interface";
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogModule } from "@angular/material/dialog";
 import { MatButton } from "@angular/material/button";
 

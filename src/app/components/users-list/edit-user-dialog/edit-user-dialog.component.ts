@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
-import { IUser } from "../../../interface/user.interface";
+import { IUser } from "../../interface/user.interface";
 
 @Component({
     standalone: true,

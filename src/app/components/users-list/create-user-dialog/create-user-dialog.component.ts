@@ -11,7 +11,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { ICreateUser } from "../../../interface/user.interface";
+import { ICreateUser } from "../../interface/user.interface";
 import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
