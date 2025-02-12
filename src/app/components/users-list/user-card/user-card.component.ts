@@ -66,7 +66,6 @@ export class UserCardComponent  {
         dialogRef.afterClosed()
         .pipe(takeUntil(this.destroy$))
         .subscribe(results => {
-            console.log('Модалка закрылась, результат:', results);
             if (results) {
                 this.editUser.emit(results);
             };

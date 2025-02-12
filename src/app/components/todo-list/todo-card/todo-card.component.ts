@@ -50,7 +50,6 @@ export class TodoCardComponent {
         });
     
         dialogRef.afterClosed().subscribe(editResult => {
-            console.log('Модалка закрылась, результат:', editResult);
             if (editResult) {
                 this.editTodo.emit(editResult);
             };

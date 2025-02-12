@@ -26,7 +26,6 @@ export class UsersService {
         );
         if (loadStorageUsers) {
             this.usersSubject$.next(loadStorageUsers);
-            console.log(loadStorageUsers);
         } else {
             this.usersApiService.getUsers().subscribe((users: IUser[]): void => {
                 this.setUsers(users)

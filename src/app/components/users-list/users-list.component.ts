@@ -33,7 +33,6 @@ export class UsersListComponent {
     }
     
     public editUser(user: IUser): void {
-        console.log(user);
         this.usersService.editUser(user);
     }
     

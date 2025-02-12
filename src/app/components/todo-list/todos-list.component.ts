@@ -26,9 +26,7 @@ export class TodosListComponent {
             }
         );
                 
-        this.TodosService.todos$.subscribe(
-            todos => console.log(todos)
-        )
+        this.TodosService.todos$.subscribe()
     }
     
     deleteTodo(id: number) {
@@ -36,7 +34,6 @@ export class TodosListComponent {
     }
     
     editTodo(todo: ITodo) {
-        console.log(todo);
         this.TodosService.editTodos({
             ...todo
         });

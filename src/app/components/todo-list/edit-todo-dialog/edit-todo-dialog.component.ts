@@ -49,8 +49,6 @@ export class EditTodoDialogComponent {
     }
     
     constructor() {
-        console.log(this.data);
         this.todoWithUpdatedFields;
-        console.log(this.data.todo);
     }
 }
