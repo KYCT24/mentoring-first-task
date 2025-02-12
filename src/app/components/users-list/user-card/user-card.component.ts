@@ -9,13 +9,16 @@ import { DeleteUserDialogComponent } from "../delete-user-dialog/delete-user-dia
 import { CustomUpperCasePipe } from "../../../pipes/upper-case.pipe";
 import { CustomRemoveDashes } from "../../../pipes/remove-dashes.pipe";
 import { Subject, takeUntil } from "rxjs";
+import { RedDirective } from "../../../directives/red-directive";
+import { MatTooltip } from "@angular/material/tooltip";
+
 
 @Component({
     selector: 'app-user-card',
     templateUrl: './user-card.component.html',
     styleUrl: './user-card.component.scss',
     standalone: true,
-    imports: [MatCardModule, MatButtonModule, MatDialogModule, CustomUpperCasePipe, CustomRemoveDashes]
+    imports: [MatCardModule, MatButtonModule, MatDialogModule, CustomUpperCasePipe, CustomRemoveDashes, RedDirective, MatTooltip]
 })
 
 export class UserCardComponent  {
