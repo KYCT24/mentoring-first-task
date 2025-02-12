@@ -1,6 +1,6 @@
 import { Component, inject } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatDialogClose, MatDialogRef} from "@angular/material/dialog";
+import { MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -13,7 +13,7 @@ import { IUser } from "../../interface/user.interface";
     selector: 'app-edit-user-dialog',
     templateUrl: './edit-user-dialog.component.html',
     styleUrls: ['./edit-user-dialog.component.scss'],
-    imports: [ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule, MatDialogClose],
+    imports: [ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule],
 })
 
 export class EditUserDialogComponent {

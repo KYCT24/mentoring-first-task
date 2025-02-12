@@ -1,7 +1,6 @@
-import { Component, EventEmitter, inject, Output } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { 
     FormBuilder,
-    FormControl, 
     FormGroup, 
     ReactiveFormsModule, 
     Validators 
@@ -10,7 +9,6 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
-import { MatSnackBar } from "@angular/material/snack-bar";
 import { ICreateUser } from "../../interface/user.interface";
 import { MatDialogRef } from "@angular/material/dialog";
 
