@@ -1,0 +1,24 @@
+<form 
+    class="edit-todo__form"
+    [formGroup]="form"
+>
+    <mat-form-field>
+        <mat-label>Текст:</mat-label>
+        <input matInput placeholder="" formControlName="title">
+        <mat-error>Текст введено неправильно</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Автор:</mat-label>
+        <input matInput placeholder="" formControlName="userId">
+        <mat-error>Автор введено неправильно. Только цифры</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Задача завершена:</mat-label>
+        <input matInput placeholder="" formControlName="completed">
+        <mat-error>Задача введено неправильно. Да или нет</mat-error>
+    </mat-form-field>
+    <button class="create-todo__button" type="submit" (click)="openSnackBar()" color="primary" matIconSuffix [mat-dialog-close]="todoWithUpdatedFields" mat-raised-button [disabled]="form.invalid">Change todo
+        <mat-icon>check_circle</mat-icon>
+    </button>
+</form>
+

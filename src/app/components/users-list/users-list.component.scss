@@ -1,0 +1,13 @@
+.users-list {
+    &__container {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    &__button {
+        position: fixed;
+        bottom: 3%;
+        right: 3%;
+        scale: 1.5;
+    }
+}

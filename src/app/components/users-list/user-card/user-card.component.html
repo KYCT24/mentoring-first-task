@@ -1,0 +1,13 @@
+<mat-card class="user-list__container">
+    <mat-card-header class="user-list__users">
+        <mat-card-title red>{{user.name | customUpperCase}}</mat-card-title>
+        <mat-card-title >{{user.email | customUpperCase}}</mat-card-title>
+        <mat-card-title >{{user.website | customUpperCase}}</mat-card-title>
+        <mat-card-title >{{user.phone | CustomRemoveDashes}}</mat-card-title>
+        <mat-card-title >{{user.company.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="user-list__buttons">
+        <button mat-raised-button color="warn" matTooltip="Удалить юзера" (click)="openDialogDelete()">Удалить юзера</button>
+        <button mat-raised-button color="primary" matTooltip="Редактировать юзера" (click)="openDialogEdit()">Редактировать юзера</button>
+    </mat-card-actions>
+</mat-card>

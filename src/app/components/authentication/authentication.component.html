@@ -1,0 +1,29 @@
+<div class="authentication">
+    <div class="authentication__container">
+        <h1 class="authentication__title">Войти?</h1>
+        <div class="authentication__wrapper">
+            <button 
+                class="authentication__button"
+                mat-raised-button
+                color="warn"
+                mat-dialog-close="admin"
+                shadowHighLight
+                matTooltip="Войти как админ"
+            >
+            <mat-icon class="authentication__icon">engineering</mat-icon>
+            Админ
+            </button>
+            <button 
+                class="authentication__button"
+                mat-raised-button
+                color="primary"
+                mat-dialog-close="user"
+                shadowHighLight
+                matTooltip="Войти как пользователь"
+            >
+            <mat-icon class="authentication__icon">people</mat-icon>
+            Юзер
+            </button>
+        </div>
+    </div>
+</div>

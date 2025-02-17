@@ -1,0 +1,11 @@
+<div class="users-list__container">
+    <div *ngFor="let item of usersService.users$ | async">
+        <app-user-card
+        [user]="item"
+        (deleteUser)="deleteUser($event)"
+        (editUser)="editUser($event)"></app-user-card>
+    </div>
+</div>
+<button mat-mini-fab color="primary" class="users-list__button" (click)="openDialogCreate()">
+    <mat-icon>add</mat-icon>
+</button>

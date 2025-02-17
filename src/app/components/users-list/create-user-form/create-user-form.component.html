@@ -1,0 +1,35 @@
+<h1>Create user form</h1>
+<div class="create-user">
+    <div class="create-user__container">
+        <form 
+            class="create-user__form"
+            [formGroup]="form"
+        >
+            <mat-form-field>
+                <mat-label>Name:</mat-label>
+                <input matInput placeholder="" formControlName="name">
+                <mat-error>Имя введено неправильно</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email:</mat-label>
+                <input matInput placeholder="" formControlName="email">
+                <mat-error>email введено неправильно</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Website:</mat-label>
+                <input matInput placeholder="" formControlName="website">
+                <mat-error>сайт введено неправильно</mat-error>
+            </mat-form-field>
+            <div formGroupName="company">
+                <mat-form-field>
+                    <mat-label>Company name:</mat-label>
+                    <input matInput placeholder="" formControlName="name">
+                    <mat-error>компания введено неправильно</mat-error>
+                </mat-form-field>
+            </div>
+                <button type="submit" (click)="submitForm()" matIconSuffix mat-raised-button [disabled]="form.invalid">Create user
+                    <mat-icon>add</mat-icon>
+                </button>
+        </form>
+    </div>
+</div>
