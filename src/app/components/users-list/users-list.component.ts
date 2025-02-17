@@ -2,12 +2,14 @@ import { AsyncPipe, NgFor } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
 import { UsersApiService } from "../service/users-api.service";
 import { UserCardComponent } from "../users-list/user-card/user-card.component";
-import { UsersService } from "../service/users.service";
 import { IUser, ICreateUser } from "../interface/user.interface";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialog } from "@angular/material/dialog";
 import { CreateUserDialogComponent } from "../users-list/create-user-dialog/create-user-dialog.component";
+import { Store } from "@ngrx/store";
+import { UsersActions } from "./store/users.actions";
+import { selectUsers } from "./store/users.selector";
 
 @Component({
     selector: 'app-user-list',
@@ -20,19 +22,24 @@ import { CreateUserDialogComponent } from "../users-list/create-user-dialog/crea
 
 export class UsersListComponent {
     public readonly usersApiService: UsersApiService = inject(UsersApiService);
-    public readonly usersService: UsersService = inject(UsersService);
+
     public readonly dialog: MatDialog = inject(MatDialog);
     
+    private readonly store = inject(Store);
+    public readonly users$ = this.store.select(selectUsers);
+    
     constructor() {
-        this.usersService.loadUsers();
+
+        this.store.dispatch(UsersActions.load());
     }
     
     public deleteUser(id: number): void {
-        this.usersService.deleteUser(id);
+
+        this.store.dispatch(UsersActions.delete({ id }));
     }
     
     public editUser(user: IUser): void {
-        this.usersService.editUser(user);
+        this.store.dispatch(UsersActions.edit({ user }));
     }
     
     public openDialogCreate(): void {
@@ -46,15 +53,18 @@ export class UsersListComponent {
     }
     
     public createUser(user: ICreateUser): void {
-        this.usersService.createUser({
-            id: new Date().getTime(),
-            name: user.name,
-            email: user.email,
-            website: user.website,
-            phone: user.phone,
-            company: {
-                name: user.company.name,
-            },
-        });
+
+        this.store.dispatch(UsersActions.create({
+            user: {
+                id: new Date().getTime(),
+                name: user.name,
+                email: user.email,
+                website: user.website,
+                phone: user.phone,
+                company: {
+                    name: user.company.name,
+                },
+            }
+        }));
     }
 }
